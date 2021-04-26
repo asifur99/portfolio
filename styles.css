@@ -1,7 +1,16 @@
 body{
-  margin: 1px;
+  margin: 0px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+}
+
+hr{
+  border-style: none;
+  border-top-style:  dotted;
+  border-width: 5px;
+  width: 5%;
+  margin: 2rem auto;
+  color:maroon;
 }
 
 h3{
@@ -13,18 +22,12 @@ img{
   height: 105px;
 }
 
-.about{
-  text-align: left;
-}
-
 .container{
   position: relative;
-  padding-top: 1rem;
   text-align: left;
 }
 
 .container-sm{
-  padding-top: 2rem;
   text-align: left;
 }
 
@@ -192,12 +195,8 @@ img{
   padding-bottom: 1rem;
 }
 
-.row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: nowrap;
-  margin-right: -15px;
-  margin-left: -15px;
-  justify-content: space-evenly;
+.img-circle{
+  height: 15rem;
+  width: 15rem;
 }
+
