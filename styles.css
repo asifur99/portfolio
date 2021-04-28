@@ -16,7 +16,12 @@ h3{
   font-weight: bold;
 }
 
-img{
+.col img{
+  width: 105px;
+  height: 105px;
+}
+
+.col-md-auto img{
   width: 105px;
   height: 105px;
 }
@@ -91,19 +96,19 @@ img{
   animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
 }
 .bar .progress-line.html span{
-  width: 85%;
-}
-.bar .progress-line.css span{
-  width: 85%;
-}
-.bar .progress-line.ajax span{
   width: 80%;
 }
-.bar .progress-line.node span{
+.bar .progress-line.css span{
   width: 75%;
 }
+.bar .progress-line.ajax span{
+  width: 75%;
+}
+.bar .progress-line.node span{
+  width: 65%;
+}
 .bar .progress-line.mysql span{
-  width: 60%;
+  width: 55%;
 }
 .progress-line span::before{
   position: absolute;
@@ -137,20 +142,24 @@ img{
     opacity: 1;
   }
 }
+
+/* beginner| intermediate| advanced| expert */
+/* 25 percent for each */
+
 .progress-line.html span::after{
-  content: "85%";
+  content: "advanced";
 }
 .progress-line.css span::after{
-  content: "85%";
+  content: "advanced";
 }
 .progress-line.ajax span::after{
-  content: "80%";
+  content: "advanced";
 }
 .progress-line.node span::after{
-  content: "70%";
+  content: "intermediate";
 }
 .progress-line.mysql span::after{
-  content: "60%";
+  content: "intermediate";
 }
 
 #heading{
