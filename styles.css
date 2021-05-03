@@ -2,6 +2,7 @@ body{
   margin: 0px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
+  font-size: 1.2rem;
 }
 
 hr{
@@ -163,11 +164,13 @@ h3{
 }
 
 #heading{
-  padding-top: 5rem;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
   font-family: 'Kaushan Script';
 }
 
 #heading h2{
+  padding-bottom: 1rem;
   font-size: 3rem;
 }
 
@@ -177,20 +180,6 @@ h3{
 
 #formatTable{
   padding-left: 4rem;
-}
-
-.image{
-  padding-top: 1rem;
-  padding-left: 2rem;
-}
-
-.imageOther{
-  padding-top: 1rem;
-  padding-left: 2rem;
-}
-
-#gitImg{
-  padding-left: 1rem;
 }
 
 .rounded-circle{
@@ -218,4 +207,38 @@ h3{
   border-radius: 50%;
   display: inline-block;
   font-family: 'Niconne', cursive;
+}
+
+.skillImg{
+  margin: 10px 10px 10px 10px;
+}
+
+.wrapper{
+  position: relative;
+  width: 50%;
+  max-width: 105px;
+}
+
+.wrapper img{
+  display: block;
+  width: 105px;
+  height: 105px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.wrapper:hover .overlay {
+  opacity: 1;
 }
