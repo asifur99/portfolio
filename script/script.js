@@ -138,13 +138,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== Skills ====================
     const skillsContainer = document.getElementById('skills-container');
+
     if (skillsContainer && typeof skills !== 'undefined') {
+        // Clear existing content to avoid duplicates
+        skillsContainer.innerHTML = '';
+
+        const categoryIcons = {
+            "Programming Languages": "images/code.svg",
+            "DevOps & Tools": "images/devops.svg",
+            "QA": "images/qa.svg",
+            "Soft Skills": "images/softskills.svg"
+        };
+
         for (const category in skills) {
             const categoryDiv = document.createElement('div');
             categoryDiv.classList.add('skills-category', 'scroll-reveal');
 
             const categoryTitle = document.createElement('h3');
-            categoryTitle.textContent = category;
+
+            // Add icon image
+            if (categoryIcons[category]) {
+                const iconImg = document.createElement('img');
+                iconImg.src = categoryIcons[category];
+                iconImg.alt = category;
+                iconImg.classList.add('category-icon');
+                categoryTitle.appendChild(iconImg);
+            }
+
+            // Add category text
+            const textNode = document.createTextNode(` ${category}`);
+            categoryTitle.appendChild(textNode);
+
             categoryDiv.appendChild(categoryTitle);
 
             const skillsGrid = document.createElement('div');
