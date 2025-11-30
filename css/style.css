@@ -243,7 +243,6 @@ body.dark-mode .header-nav {
 	text-align: center;
 	gap: 2rem;
 	padding: 3rem 1rem;
-	background-color: var(--section-bg);
 	opacity: 0;
 	transform: translateY(20px);
 	animation: fadeInUp 0.8s forwards;
