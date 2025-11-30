@@ -74,80 +74,118 @@ const skills = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Dark mode toggle
+    // ==================== Dark mode toggle (optional) ====================
     const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-    });
-
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('show');
-    });
-
-    // Job Experience
-    const experienceContainer = document.getElementById('experience-container');
-    jobs.forEach(job => {
-        const jobDiv = document.createElement('div');
-        jobDiv.classList.add('job', 'scroll-reveal');
-        const jobTitle = document.createElement('h3');
-        jobTitle.innerHTML = `${job.title} <span class="company">@ ${job.company}</span>`;
-        const jobPeriod = document.createElement('span');
-        jobPeriod.textContent = job.period;
-        jobDiv.appendChild(jobTitle);
-        jobDiv.appendChild(jobPeriod);
-
-        const ul = document.createElement('ul');
-        job.responsibilities.forEach(task => {
-            const li = document.createElement('li');
-            li.textContent = task;
-            ul.appendChild(li);
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
         });
-        jobDiv.appendChild(ul);
-        experienceContainer.appendChild(jobDiv);
-    });
-
-    // Skills
-    const skillsContainer = document.getElementById('skills-container');
-    for (const category in skills) {
-        const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add('skills-category', 'scroll-reveal');
-        const categoryTitle = document.createElement('h3');
-        categoryTitle.textContent = category;
-        categoryDiv.appendChild(categoryTitle);
-        const skillsGrid = document.createElement('div');
-        skillsGrid.classList.add('skills-grid');
-        skills[category].forEach(skill => {
-            const skillBadge = document.createElement('span');
-            skillBadge.classList.add('skill-badge');
-            skillBadge.textContent = skill;
-            skillsGrid.appendChild(skillBadge);
-        });
-        categoryDiv.appendChild(skillsGrid);
-        skillsContainer.appendChild(categoryDiv);
+    } else {
+        // Default to light mode if toggle not present
+        document.body.classList.remove('dark-mode');
     }
 
-    // Certifications
-    const certContainer = document.getElementById('certification-container');
-    certifications.forEach(cert => {
-        const card = document.createElement('a');
-        card.href = cert.link || '#';
-        card.target = '_blank';
-        card.classList.add('cert-card', 'scroll-reveal');
-        const logo = document.createElement('img');
-        logo.src = cert.logo;
-        logo.alt = cert.title;
-        const name = document.createElement('span');
-        name.textContent = cert.title;
-        card.appendChild(logo);
-        card.appendChild(name);
-        certContainer.appendChild(card);
-    });
+    // ==================== Mobile menu toggle ====================
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('show');
+        });
+    }
 
-    // Navbar highlight
+    // ==================== Job Experience ====================
+    const experienceContainer = document.getElementById('experience-container');
+    if (experienceContainer && typeof jobs !== 'undefined') {
+        jobs.forEach(job => {
+            const jobDiv = document.createElement('div');
+            jobDiv.classList.add('job', 'scroll-reveal');
+
+            const jobTitle = document.createElement('h3');
+            jobTitle.textContent = job.title;
+            jobDiv.appendChild(jobTitle);
+
+            const jobInfo = document.createElement('div');
+            jobInfo.classList.add('job-info');
+
+            const company = document.createElement('span');
+            company.classList.add('company');
+            company.textContent = job.company;
+
+            const period = document.createElement('span');
+            period.classList.add('period');
+            period.textContent = job.period;
+
+            // Add a separator or line break between company and period if needed
+            jobInfo.appendChild(company);
+            jobInfo.appendChild(document.createTextNode(' | ')); // optional separator
+            jobInfo.appendChild(period);
+
+            jobDiv.appendChild(jobInfo);
+
+            const ul = document.createElement('ul');
+            job.responsibilities.forEach(task => {
+                const li = document.createElement('li');
+                li.textContent = task;
+                ul.appendChild(li);
+            });
+            jobDiv.appendChild(ul);
+
+            experienceContainer.appendChild(jobDiv);
+        });
+    }
+
+    // ==================== Skills ====================
+    const skillsContainer = document.getElementById('skills-container');
+    if (skillsContainer && typeof skills !== 'undefined') {
+        for (const category in skills) {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.classList.add('skills-category', 'scroll-reveal');
+
+            const categoryTitle = document.createElement('h3');
+            categoryTitle.textContent = category;
+            categoryDiv.appendChild(categoryTitle);
+
+            const skillsGrid = document.createElement('div');
+            skillsGrid.classList.add('skills-grid');
+
+            skills[category].forEach(skill => {
+                const skillBadge = document.createElement('span');
+                skillBadge.classList.add('skill-badge');
+                skillBadge.textContent = skill;
+                skillsGrid.appendChild(skillBadge);
+            });
+
+            categoryDiv.appendChild(skillsGrid);
+            skillsContainer.appendChild(categoryDiv);
+        }
+    }
+
+    // ==================== Certifications ====================
+    const certContainer = document.getElementById('certification-container');
+    if (certContainer && typeof certifications !== 'undefined') {
+        certifications.forEach(cert => {
+            const card = document.createElement('a');
+            card.href = cert.link || '#';
+            card.target = '_blank';
+            card.classList.add('cert-card', 'scroll-reveal');
+
+            const logo = document.createElement('img');
+            logo.src = cert.logo;
+            logo.alt = cert.title;
+
+            const name = document.createElement('span');
+            name.textContent = cert.title;
+
+            card.appendChild(logo);
+            card.appendChild(name);
+
+            certContainer.appendChild(card);
+        });
+    }
+
+    // ==================== Navbar highlight ====================
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
     window.addEventListener('scroll', () => {
@@ -162,10 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Footer year
-    document.getElementById('date').textContent = new Date().getFullYear();
+    // ==================== Footer year ====================
+    const dateEl = document.getElementById('date');
+    if (dateEl) dateEl.textContent = new Date().getFullYear();
 
-    // Scroll reveal
+    // ==================== Scroll reveal ====================
     const revealElements = document.querySelectorAll('.scroll-reveal');
     const revealOnScroll = () => {
         const windowBottom = window.innerHeight + window.scrollY;
