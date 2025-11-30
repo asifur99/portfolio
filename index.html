@@ -1,241 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Asifur Rahman | Portfolio</title>
+		<link rel="icon" type="image/png" href="images/thumbnail.png" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<!-- Header / Navbar -->
+		<header class="header-nav">
+			<nav class="nav-container">
+				<a href="#experience" class="nav-link">Experience</a>
+				<a href="#skills" class="nav-link">Skills</a>
+				<a href="#projects" class="nav-link">Projects</a>
+				<a href="#certifications" class="nav-link">Certifications</a>
+				<a href="#contact" class="nav-link">Contact</a>
+				<span id="theme-toggle">🌙</span>
+				<span id="menu-toggle">☰</span>
+			</nav>
+			<div id="mobile-menu" class="mobile-menu">
+				<a href="#experience" class="nav-link">Experience</a>
+				<a href="#skills" class="nav-link">Skills</a>
+				<a href="#projects" class="nav-link">Projects</a>
+				<a href="#certifications" class="nav-link">Certifications</a>
+				<a href="#contact" class="nav-link">Contact</a>
+			</div>
+		</header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" property="og:title" content="My Portfolio">
-    <meta name="author" content="Asifur Rahman">
-    <meta name="description" property="og:description" content="Portfolio-Asifur Rahman">
-    <meta name="image" property="og:image" content="images/thumbnail.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=Courgette|Ibarra+Real+Nova|Kaushan+Script|Dancing+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
-    <title>Asifur Rahman - Portfolio</title>
-</head>
+		<!-- Hero Section -->
+		<section id="about" class="hero container">
+			<img src="images/asifur.jpg" alt="Profile Picture" />
+			<div class="hero-text">
+				<h1>Hello, I am Asifur Rahman</h1>
+				<p>
+					I am a passionate programmer specializing in web development. I love
+					building clean, modern websites and exploring new technologies.
+				</p>
+			</div>
+		</section>
 
-<body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar-brand">
-            <span class="circle">AR</span>
-        </div>
+		<!-- Job Experience -->
+		<section id="experience" class="container">
+			<h2>Job Experience</h2>
+			<div class="section-content" id="experience-container">
+				<!-- Dynamic job cards populated via JS -->
+			</div>
+		</section>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+		<!-- Skills -->
+		<section id="skills" class="container">
+			<h2>Skills</h2>
+			<div class="section-content" id="skills-container">
+				<!-- Dynamic skills populated via JS -->
+			</div>
+		</section>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link" href="https://www.linkedin.com/in/asifur99/" target="_blank">LinkedIn</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="https://github.com/asifur99" target="_blank">Github</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="mailto:asifurrahman@cmail.carleton.ca" target="_blank">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+		<!-- Projects -->
+		<section id="projects" class="container">
+			<h2>Projects</h2>
+			<div class="section-content projects">
+				<div class="project-card scroll-reveal">
+					<h3>Instant Messaging Application</h3>
+					<p>
+						Individual honours project for COMP 4905. Full-stack app using
+						React-native (frontend), AWS Amplify (backend), DynamoDB (database).
+					</p>
+					<a href="https://github.com/asifur99/Real-Time-Chat-App" target="_blank"
+						>View Repo</a
+					>
+				</div>
+				<div class="project-card scroll-reveal">
+					<h3>MCT Device Simulator</h3>
+					<p>
+						Team Project for COMP 3004. Used Qt Framework and C++ to design GUI and
+						implement functionality.
+					</p>
+					<a href="https://github.com/asifur99/MCT-Device-Simulator" target="_blank"
+						>View Repo</a
+					>
+				</div>
+				<div class="project-card scroll-reveal">
+					<h3>Elevator Control System</h3>
+					<p>
+						Team Project for SYSC 3303. Used Java for backend logic and Java Swing for
+						GUI.
+					</p>
+					<a href="https://github.com/asifur99/Elevator-Timing" target="_blank"
+						>View Repo</a
+					>
+				</div>
+			</div>
+		</section>
 
-    <div id="heading">
-        <h2>Hi, I am Asifur Rahman</h2>
-        <img src="images/asifur.png" class="img-circle" alt="ProfilePicture">
-        <h1> I am a Software Developer</h1>
-    </div>
+		<!-- Certifications -->
+		<section id="certifications" class="container">
+			<h2>Certifications</h2>
+			<div class="section-content certifications" id="certification-container">
+				<!-- Dynamic certifications populated via JS -->
+			</div>
+		</section>
 
-    <div class ="container">
-        <p>
-            I am a New Graduate in Computer Science proficient in Python, Java, C/C++, and Web Development.
-            I have worked on various projects and acquired skills such as Problem-Solving, Teamwork, and Critical 
-            Thinking.
-            I am very comfortable with Full-Stack Web Development but also proficient with Concurrent Systems for Real-Time Systems Applications.
-        </p>
-    </div>
+		<!-- Contact -->
+		<section id="contact" class="container">
+			<h2>Get in Touch</h2>
+			<div class="section-content contact-cards">
+				<a class="contact-card">
+					<span class="contact-icon">📧</span>
+					<span class="contact-text">arahman.24@outlook.com</span>
+				</a>
+				<a class="contact-card">
+					<span class="contact-icon">📞</span>
+					<span class="contact-text">+1 343 558 3079</span>
+				</a>
+				<a href="https://github.com/asifur99" target="_blank" class="contact-card">
+					<span class="contact-icon">🐙</span>
+					<span class="contact-text">GitHub</span>
+				</a>
+				<a
+					href="https://www.linkedin.com/in/asifur99"
+					target="_blank"
+					class="contact-card"
+				>
+					<span class="contact-icon">🔗</span>
+					<span class="contact-text">LinkedIn</span>
+				</a>
+			</div>
+		</section>
 
-    <hr>
+		<footer>
+			&copy; <span id="date"></span> Asifur Rahman. All rights reserved.
+		</footer>
 
-    <div class ="container">
-        <h3> ABOUT ME </h3>
-        <p>
-            I am passionate about technology and their functionalities. I was drawn towards an education and career that 
-            emphasized on both the technology and the working of it. Then I realized that my journey is a long one due to the 
-            growth rate of technology innovation and improvement. Above that, my curiosity makes me want to learn and explore various technological avenues. At the moment, I am working in Software Development as 
-            this is where I believe I can catch a glimpse of the technology being used right now and ever since then I have been forging a career in this field.
-            <br><br>
-            Currently I am learning various new approaches to solve a problem and mastering new frameworks that I did not 
-            get a chance to use in my courseworks, giving me an opportunity to broaden my horizon in the field.
-        </p>
-    </div>
-
-    <hr>
-
-    <div class ="container">
-        <h3> EXPERIENCE </h3>
-        <div class="row">
-            <div class="col-sm">
-                <p>
-                    I have a wide range of experience in the tech space, including working as a member on a group project, as a software engineer at a software 
-                    development company and working individually on a personal project or assignment.
-                </p>
-            </div>
-
-            <div class="col-md-auto">
-                <img src="https://media-exp1.licdn.com/dms/image/C560BAQGyq4z_iuwEvQ/company-logo_200_200/0/1607303659875?e=2159024400&v=beta&t=miKEYj-ScGtCxiCbCJsHijbZ1ovCDu9R_SoKqEwuU2Y" alt="PaymentEvolutionLogo">
-            </div>
-
-            <div class="col-sm">
-                <span class="heading">PaymentEvolution</span>
-                <br>
-                I maintain the website's UI and working with technologies such as ASP.NET and the MVC Framework as well as working with the backend team to achieve the organization's goal.
-            </div>
-        </div>
-    </div>
-
-    <hr>
-    
-    <div class="d-flex justify-content-center align-content-end flex-wrap">
-      <div class="col-md-auto">
-        <div class="container">
-          <div class="col-md-auto">
-            <h3> WEB DEVELOPEMENT SKILLS </h3>
-          </div>
-          <div class="skill-bars">
-            <div class="bar">
-              <div class="info">
-                <span>HTML</span>
-              </div>
-  
-              <div class="progress-line html">
-                <span></span>
-              </div>
-            </div>
-            
-            <div class="bar">
-              <div class="info">
-                <span>CSS</span>
-              </div>
-  
-              <div class="progress-line css">
-                <span></span>
-              </div>
-            </div>
-  
-            <div class="bar">
-              <div class="info">
-                <span>AJAX</span>
-              </div>
-  
-              <div class="progress-line ajax">
-                <span></span>
-              </div>
-            </div>
-  
-            <div class="bar">
-              <div class="info">
-                <span>NodeJs</span>
-              </div>
-  
-              <div class="progress-line node">
-                <span></span>
-              </div>
-            </div>
-  
-            <div class="bar">
-              <div class="info">
-                <span>SQL/NoSQL</span>
-              </div>
-  
-              <div class="progress-line mysql">
-                <span></span>
-              </div>
-            </div>
-          </div>    
-        </div>
-      </div>
-
-      <div class="col-md-auto">
-        <div class="container">
-            <div class="col-md-auto">
-              <h3 id="formatTable">OTHER PROFICIENCIES</h3>
-            </div>
-            
-            <div class="container">
-              <div class="row">
-                  <img src="images/java.svg" class="skillImg"/>
-                  <img src="images/c.svg" class="skillImg"/>
-                  <img src="images/py.svg" class="skillImg"/>
-                  <img src="images/git.svg" class="skillImg"/>
-              </div>
-    
-              <div class="row">
-                  <img src="images/asp.svg" class="skillImg"/>
-                  <img src="images/jira.png" class="skillImg"/>
-                  <img src="images/linux.png" class="skillImg"/>
-                  <img src="images/functional.svg" class="skillImg"/>
-              </div>
-    
-              <div class="row">
-                  <img src="images/visual.png" class="skillImg"/>
-                  <img src="images/bootstrap.svg" class="skillImg"/>
-              </div>
-            </div> 
-        </div>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="container-sm">
-        <h3> ACADEMIC PROJECTS </h3>
-
-        <div class="row">
-          <div class="col-md-auto">
-            <div class="list-group" id="list-tab" role="tablist">
-              <a class="list-group-item list-group-item-action active" id="list-p1-list" data-toggle="list" href="#list-p1" role="tab" aria-controls="home"> <span class="title">Developing and Testing a MCT Device Simulator</span> (Jan 2021 – Apr 2021)</a>
-              <a class="list-group-item list-group-item-action" id="list-p2-list" data-toggle="list" href="#list-p2" role="tab" aria-controls="profile"> <span class="title">Elevator Control System and Simulator</span> (Jan 2021 – Apr 2021)</a>
-              <a class="list-group-item list-group-item-action" id="list-p3-list" data-toggle="list" href="#list-p3" role="tab" aria-controls="messages"> <span class="title">Food Delivery Application (NodeJS and MongoDB)</span> (Jan 2020 – Apr 2020)</a>
-            </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="tab-content" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="list-p1" role="tabpanel" aria-labelledby="list-p1-list">
-                <span class="heading">Summary</span> <br>
-
-                Team  Project for the course COMP 3004. <br> 
-                We used Qt Framework and C++ to design the GUI and implement the functionalities to make it work.
-              </div>
-
-              <div class="tab-pane fade" id="list-p2" role="tabpanel" aria-labelledby="list-p2-list">
-                <span class="heading">Summary</span> <br>
-
-                Team Project for the course SYSC 3303. <br>
-                We used Java to make the backend logic and the implementation of the system and java swing to create the GUI part of the program.
-              </div>
-
-              <div class="tab-pane fade" id="list-p3" role="tabpanel" aria-labelledby="list-p3-list">
-                <span class="heading">Summary</span> <br>
-
-                Individual Project for the course COMP 2406. <br>
-                I used AJAX, HTML, CSS and Pug to construct the front-end part of the application. NodeJs and Express was used for the server to host the website.
-                This website has a user login and signup which is stored in MongoDB and used for validation by the server.
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-
-    <div class="bottom-container">
-      <p class="copy">© <span id="date">2020</span> Asifur Rahman.</p>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="script/script.js"></script>
-  </body>
+		<script src="script/script.js"></script>
+	</body>
+</html>

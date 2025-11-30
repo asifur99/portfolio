@@ -1,1 +1,178 @@
-$("#date").text(new Date().getFullYear());
+// Job Experience Data
+const jobs = [
+    {
+        title: "Full Stack Software Developer",
+        company: "SKYTRAC Systems",
+        period: "Jul 2022 - Present",
+        responsibilities: [
+            "Developed SaaS platforms for real-time communications and flight tracking, leveraging microservices to deliver scalable and reliable systems.",
+            "Collaborated on software design and development through code reviews, design reviews, and authoring requirements based on customer needs.",
+            "Worked with QA to design test strategies, provide system expertise for accurate execution, and assist with testing as required.",
+            "Developed end-to-end REST APIs and integrated them with AWS cloud services to efficiently deliver user-requested data in a clear, organized format.",
+            "Developed services for high-traffic applications using AWS MSK to stream data between frontend and backend, improving processing speed by 30% while keeping data accurate and in order.",
+            "Built a CI/CD virtual machine for GitLab to run pipelines remotely, using scripts to manage and maintain container images in AWS ECR for a smooth and reliable deployment workflow.",
+            "Optimized JavaScript libraries, reducing code size and improving UI performance by 10% through faster loading and rendering of interface components.",
+            "Architected distributed systems leveraging Redis, RabbitMQ, and AWS EC2, ensuring smooth collaboration between legacy and new systems while boosting reliability and performance.",
+            "Implemented automated monitoring with Grafana and Prometheus, providing real-time alerts for production issues and enabling fast incident resolution."
+        ]
+    },
+    {
+        title: "Research Assistant - Software Engineer",
+        company: "Payment Evolution",
+        period: "Jan 2021 - Aug 2022",
+        responsibilities: [
+            "Maintained .NET applications using C# and MVC framework with SQL and MongoDB, ensuring system stability and smooth product performance.",
+            "Optimized Enterprise software code and NuGet frameworks to improve application reliability and efficiency resulting in an improved User Experience.",
+            "Worked with cross-functional teams to develop and integrate a web application using .NET and C#, meeting client requirements and improving project workflow.",
+            "Developed HR assistants using Prolog and Microsoft Bot Framework to automate onboarding and termination queries, leveraging web scraping and provincial/federal guidelines, and trained team members to use the system effectively, improving HR efficiency and accuracy.",
+            "Developed a full-stack prototype using Vue.js (UI) and Django (REST API backend) that showcased product value and contributed to securing client funding."
+        ]
+    },
+    {
+        title: "Research Assistant - Back End Developer",
+        company: "Carleton Immersive Media Studio (CIMS)",
+        period: "Jan 2022 - Jun 2022",
+        responsibilities: [
+            "Used C++ to optimize Unreal Engine performance, reducing Blueprint overhead and improving application efficiency and responsiveness.",
+            "Created a PostgreSQL database server to manage data for server and client access, enabling fast retrieval and rendering of assets via Unreal Engine API calls.",
+            "Implemented UI functionalities in Unreal Engine using Blueprints, improving object interactivity while integrating seamlessly with backend systems.",
+            "Set up Docker images and configurations compatible with the latest Caddy architecture, ensuring reliable server operation and efficient client-server communication.",
+            "Worked with architects to design 3D models and stream them in Unreal Engine, allowing users to navigate assets interactively.",
+            "Authored and maintained technical documentation for backend systems, Unreal Engine integrations, and workflows to support team clarity, maintainability, and knowledge transfer."
+        ]
+    }
+];
+
+// Certifications Data
+const certifications = [
+    {
+        title: "Architecting Solutions on AWS",
+        logo: "images/aws.png",
+        link: "https://www.coursera.org/account/accomplishments/verify/2RVDJD5FQ6KS"
+    },
+    {
+        title: "AWS Cloud Technical Essentials",
+        logo: "images/aws.png",
+        link: "https://www.coursera.org/account/accomplishments/records/2DCY5335SMXQ"
+    }
+];
+
+// Dynamic Skills Data
+const skills = {
+    "Programming Languages": [
+        "Python", "C++", "JavaScript", "Java", "TypeScript", "SQL", "NoSQL", "Shell Scripts"
+    ],
+    "DevOps & Tools": [
+        "Kubernetes", "Apache Kafka", "AWS", "Docker", "GitLab CI/CD", "Redis", "RabbitMQ", "Linux"
+    ],
+    "QA": [
+        "Unit Testing", "Integration Testing", "API Testing", "Performance Testing", "Monitoring"
+    ],
+    "Soft Skills": [
+        "System Design", "Team Collaboration", "Project Management", "Technical Communication", "Problem Solving", "Agile/Scrum"
+    ]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('show');
+    });
+
+    // Job Experience
+    const experienceContainer = document.getElementById('experience-container');
+    jobs.forEach(job => {
+        const jobDiv = document.createElement('div');
+        jobDiv.classList.add('job', 'scroll-reveal');
+        const jobTitle = document.createElement('h3');
+        jobTitle.innerHTML = `${job.title} <span class="company">@ ${job.company}</span>`;
+        const jobPeriod = document.createElement('span');
+        jobPeriod.textContent = job.period;
+        jobDiv.appendChild(jobTitle);
+        jobDiv.appendChild(jobPeriod);
+
+        const ul = document.createElement('ul');
+        job.responsibilities.forEach(task => {
+            const li = document.createElement('li');
+            li.textContent = task;
+            ul.appendChild(li);
+        });
+        jobDiv.appendChild(ul);
+        experienceContainer.appendChild(jobDiv);
+    });
+
+    // Skills
+    const skillsContainer = document.getElementById('skills-container');
+    for (const category in skills) {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('skills-category', 'scroll-reveal');
+        const categoryTitle = document.createElement('h3');
+        categoryTitle.textContent = category;
+        categoryDiv.appendChild(categoryTitle);
+        const skillsGrid = document.createElement('div');
+        skillsGrid.classList.add('skills-grid');
+        skills[category].forEach(skill => {
+            const skillBadge = document.createElement('span');
+            skillBadge.classList.add('skill-badge');
+            skillBadge.textContent = skill;
+            skillsGrid.appendChild(skillBadge);
+        });
+        categoryDiv.appendChild(skillsGrid);
+        skillsContainer.appendChild(categoryDiv);
+    }
+
+    // Certifications
+    const certContainer = document.getElementById('certification-container');
+    certifications.forEach(cert => {
+        const card = document.createElement('a');
+        card.href = cert.link || '#';
+        card.target = '_blank';
+        card.classList.add('cert-card', 'scroll-reveal');
+        const logo = document.createElement('img');
+        logo.src = cert.logo;
+        logo.alt = cert.title;
+        const name = document.createElement('span');
+        name.textContent = cert.title;
+        card.appendChild(logo);
+        card.appendChild(name);
+        certContainer.appendChild(card);
+    });
+
+    // Navbar highlight
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (pageYOffset >= sectionTop) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+        });
+    });
+
+    // Footer year
+    document.getElementById('date').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealOnScroll = () => {
+        const windowBottom = window.innerHeight + window.scrollY;
+        revealElements.forEach(el => {
+            if (el.offsetTop < windowBottom - 50) el.classList.add('show');
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+});
