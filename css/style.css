@@ -1,6 +1,6 @@
 /* ==================== Variables ==================== */
 :root {
-	--accent-color: #00692a;
+	--accent-color: #00732e;
 	--text-color: #333;
 	--bg-color: #fff;
 	--section-bg: #f9f9f9;
@@ -9,7 +9,7 @@
 }
 
 body.dark-mode {
-	--accent-color: #0bd800;
+	--accent-color: #20cb17;
 	--text-color: #e0e0e0;
 	--bg-color: #121212;
 	--section-bg: #1f1f1f;
@@ -29,6 +29,28 @@ body {
 	color: var(--text-color);
 	background-color: var(--bg-color);
 	transition: background 0.3s, color 0.3s;
+}
+
+/* Global hyperlink styling */
+a {
+	color: var(--accent-color);
+	text-decoration: none;
+	transition: color 0.3s, text-decoration 0.3s;
+}
+
+a:hover {
+	text-decoration: underline;
+	/* Optional: slightly darken accent color on hover */
+	color: #005522; /* or pick a shade darker than --accent-color */
+}
+
+/* Ensure links in dark mode remain readable */
+body.dark-mode a {
+	color: var(--accent-color);
+}
+
+body.dark-mode a:hover {
+	color: #005522; /* slightly darker shade in dark mode if needed */
 }
 
 /* ==================== Section Headings & Content ==================== */
@@ -140,36 +162,75 @@ body.dark-mode .header-nav {
 	transform: scale(1.15);
 }
 
-/* Mobile menu */
+/* ==================== Mobile Menu ==================== */
 #menu-toggle {
 	display: none;
+	cursor: pointer;
+	font-size: 1.5rem;
+	padding: 0.25rem 0.5rem;
+	border-radius: 8px;
+	border: 1px solid var(--accent-color);
+	background: rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(10px) saturate(180%);
+	-webkit-backdrop-filter: blur(10px) saturate(180%);
+	transition: background 0.3s, color 0.3s, transform 0.2s;
 }
 
+#menu-toggle:hover {
+	background: var(--accent-color);
+	color: #fff;
+	transform: scale(1.1);
+}
+
+/* Mobile menu container */
 .mobile-menu {
 	display: none;
 	flex-direction: column;
 	gap: 0.75rem;
 	text-align: center;
-	margin-top: 0.25rem;
-	backdrop-filter: blur(20px) saturate(180%);
-	-webkit-backdrop-filter: blur(20px) saturate(180%);
-	background: rgba(255, 255, 255, 0.25);
-	padding: 0.5rem;
+	margin-top: 0.5rem;
+	padding: 1rem;
 	border-radius: 12px;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+	background: rgba(255, 255, 255, 0.25);
+	backdrop-filter: blur(15px) saturate(180%);
+	-webkit-backdrop-filter: blur(15px) saturate(180%);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s, opacity 0.3s;
+	opacity: 0;
+	transform: translateY(-10px);
 }
 
+/* Show menu when toggled */
 .mobile-menu.show {
 	display: flex;
+	opacity: 1;
+	transform: translateY(0);
 }
 
-/* Responsive adjustments */
+/* Mobile links */
+.mobile-menu a.nav-link {
+	font-weight: 600;
+	font-size: 1rem;
+	color: var(--text-color);
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	transition: background 0.3s, color 0.3s;
+}
+
+.mobile-menu a.nav-link:hover,
+.mobile-menu a.nav-link.active {
+	background: var(--accent-color);
+	color: #fff;
+}
+
+/* Responsive trigger for mobile */
 @media screen and (max-width: 768px) {
-	.nav-container a.nav-link {
-		display: none;
-	}
 	#menu-toggle {
 		display: block;
+	}
+	.nav-container a.nav-link {
+		display: none;
 	}
 }
 
