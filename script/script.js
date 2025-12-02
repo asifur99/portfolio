@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const categoryIcons = {
             "Programming Languages": "images/code.svg",
             "DevOps & Tools": "images/devops.svg",
-            "QA": "images/qa.svg",
+            "Quality Assurance": "images/qa.svg",
             "Soft Skills": "images/softskills.svg"
         };
 
