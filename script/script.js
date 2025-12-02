@@ -154,17 +154,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Toggle functionality
-        document.querySelectorAll('.job-toggle-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const job = btn.closest('.job');
-                const details = job.querySelector('.job-details');
-                const summary = job.querySelector('.job-summary');
+        document.querySelectorAll('.job').forEach(job => {
+            const btnImg = job.querySelector('.job-toggle-btn img');
+            const details = job.querySelector('.job-details');
+            const summary = job.querySelector('.job-summary');
+
+            job.addEventListener('click', (e) => {
+                // Prevent triggering twice if clicking directly on the button
+                if (e.target.tagName === 'IMG' || e.target.tagName === 'BUTTON') return;
 
                 // Close other jobs
                 document.querySelectorAll('.job-details.show').forEach(openDetails => {
                     if (openDetails !== details) {
                         openDetails.classList.remove('show');
-                        openDetails.previousElementSibling.style.display = 'block'; // show summary
+                        openDetails.previousElementSibling.style.display = 'block';
                         const openBtn = openDetails.closest('.job').querySelector('.job-toggle-btn img');
                         openBtn.classList.remove('rotate');
                     }
@@ -174,15 +177,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!details.classList.contains('show')) {
                     summary.style.display = 'none';
                     details.classList.add('show');
-                    btn.querySelector('img').classList.add('rotate');
+                    btnImg.classList.add('rotate');
                 } else {
                     details.classList.remove('show');
                     summary.style.display = 'block';
-                    btn.querySelector('img').classList.remove('rotate');
+                    btnImg.classList.remove('rotate');
                 }
             });
-        });
 
+            // Also toggle when clicking the icon itself
+            job.querySelector('.job-toggle-btn').addEventListener('click', (e) => {
+                e.stopPropagation(); // prevent double toggle
+                job.click();
+            });
+        });
     }
 
     // ==================== Skills ====================

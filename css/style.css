@@ -389,8 +389,8 @@ body.dark-mode .header-nav {
 }
 
 .job-toggle-btn img {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     transition: transform 0.3s ease;
 }
 
