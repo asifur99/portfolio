@@ -4,6 +4,7 @@ const jobs = [
         title: "Full Stack Software Developer",
         company: "SKYTRAC Systems",
         period: "Jul 2022 - Present",
+        summary: "Built scalable SaaS platforms for real-time flight tracking and communications, collaborating with embedded engineers to meet customer needs while optimizing performance and ensuring system reliability.",
         responsibilities: [
             "Developed SaaS platforms for real-time communications and flight tracking, leveraging microservices to deliver scalable and reliable systems.",
             "Collaborated on software design and development through code reviews, design reviews, and authoring requirements based on customer needs.",
@@ -20,6 +21,7 @@ const jobs = [
         title: "Research Assistant - Software Engineer",
         company: "Payment Evolution",
         period: "Jan 2021 - Aug 2022",
+        summary: "Maintained and optimized .NET applications, collaborated with cross-functional teams to deliver web solutions, and developed automated HR assistants and full-stack prototypes to improve efficiency and demonstrate product value.",
         responsibilities: [
             "Maintained .NET applications using C# and MVC framework with SQL and MongoDB, ensuring system stability and smooth product performance.",
             "Optimized Enterprise software code and NuGet frameworks to improve application reliability and efficiency resulting in an improved User Experience.",
@@ -32,6 +34,7 @@ const jobs = [
         title: "Research Assistant - Back End Developer",
         company: "Carleton Immersive Media Studio (CIMS)",
         period: "Jan 2022 - Jun 2022",
+        summary: "Optimized Unreal Engine performance with C++, managed databases and Docker configurations, implemented interactive UI features, collaborated on 3D asset streaming, and maintained technical documentation to support efficient development workflows.",
         responsibilities: [
             "Used C++ to optimize Unreal Engine performance, reducing Blueprint overhead and improving application efficiency and responsiveness.",
             "Created a PostgreSQL database server to manage data for server and client access, enabling fast retrieval and rendering of assets via Unreal Engine API calls.",
@@ -97,34 +100,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== Job Experience ====================
     const experienceContainer = document.getElementById('experience-container');
+
     if (experienceContainer && typeof jobs !== 'undefined') {
         jobs.forEach(job => {
             const jobDiv = document.createElement('div');
             jobDiv.classList.add('job', 'scroll-reveal');
 
+            // Job title
             const jobTitle = document.createElement('h3');
             jobTitle.textContent = job.title;
             jobDiv.appendChild(jobTitle);
 
+            // Company + period
             const jobInfo = document.createElement('div');
             jobInfo.classList.add('job-info');
-
             const company = document.createElement('span');
             company.classList.add('company');
             company.textContent = job.company;
-
             const period = document.createElement('span');
             period.classList.add('period');
             period.textContent = job.period;
-
-            // Add a separator or line break between company and period if needed
             jobInfo.appendChild(company);
-            jobInfo.appendChild(document.createTextNode(' | ')); // optional separator
+            jobInfo.appendChild(document.createTextNode(' | '));
             jobInfo.appendChild(period);
-
             jobDiv.appendChild(jobInfo);
 
+            // Summary
+            const summary = document.createElement('p');
+            summary.classList.add('job-summary');
+            summary.textContent = job.summary; // Make sure jobs array has a "summary" property
+            jobDiv.appendChild(summary);
+
+            // Full details list
             const ul = document.createElement('ul');
+            ul.classList.add('job-details');
             job.responsibilities.forEach(task => {
                 const li = document.createElement('li');
                 li.textContent = task;
@@ -132,7 +141,39 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             jobDiv.appendChild(ul);
 
+            // Toggle button
+            const btn = document.createElement('button');
+            btn.classList.add('job-toggle-btn');
+            const img = document.createElement('img');
+            img.src = 'images/plus.svg';
+            img.alt = 'Toggle details';
+            btn.appendChild(img);
+            jobDiv.appendChild(btn);
+
             experienceContainer.appendChild(jobDiv);
+        });
+
+        // Toggle functionality
+        document.querySelectorAll('.job-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const job = btn.closest('.job');
+                const details = job.querySelector('.job-details');
+                const summary = job.querySelector('.job-summary');
+
+                if (!details.classList.contains('show')) {
+                    // Hide summary and expand details
+                    summary.style.display = 'none';
+                    details.style.maxHeight = details.scrollHeight + "px";
+                    details.classList.add('show');
+                    btn.querySelector('img').classList.add('rotate');
+                } else {
+                    // Collapse details and show summary
+                    details.style.maxHeight = "0";
+                    details.classList.remove('show');
+                    summary.style.display = 'block';
+                    btn.querySelector('img').classList.remove('rotate');
+                }
+            });
         });
     }
 

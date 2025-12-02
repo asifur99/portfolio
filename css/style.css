@@ -302,48 +302,100 @@ body.dark-mode .header-nav {
 
 /* ==================== Experience / Jobs ==================== */
 #experience-container .job {
-	background: var(--bg-color);
-	padding: 1rem;
-	margin-bottom: 1rem;
-	border-radius: 10px;
-	box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-	text-align: left;
-	transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--bg-color);
+    padding: 1.2rem 1rem 1rem 1rem; /* extra top padding for toggle */
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    position: relative; /* for toggle icon */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 #experience-container .job:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .job h3 {
-	margin-top: 0;
-	margin-bottom: 0.3rem;
-	font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
 }
 
 .job-info {
-	font-size: 0.95rem;
-	color: gray;
-	margin-bottom: 0.5rem;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.25rem;
+    font-size: 0.95rem;
+    color: gray;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }
 
 .job-info .company {
-	font-weight: 500;
-	color: var(--accent-color);
+    font-weight: 500;
+    color: var(--accent-color);
 }
 
 .job-info .period {
-	font-style: italic;
+    font-style: italic;
 }
 
-.job ul {
-	margin: 0;
-	padding-left: 1rem;
-	list-style-position: inside;
+.job-summary {
+    margin: 0.5rem 0;
+}
+
+.job-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.job-details.show {
+    overflow: visible;
+}
+
+.job-details li {
+    margin-bottom: 0.3rem;
+}
+
+/* Toggle button */
+.job-toggle-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 28px;
+    height: 28px;
+}
+
+.job-toggle-btn img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.job-toggle-btn img.rotate {
+    transform: rotate(45deg);
+}
+
+@media screen and (max-width: 768px) {
+    .job-toggle-btn {
+        top: 8px;
+        right: 8px;
+        width: 24px;
+        height: 24px;
+    }
+    .job-toggle-btn img {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 /* ==================== Skills ==================== */
@@ -478,6 +530,13 @@ body.dark-mode .header-nav {
 	transform: translateY(-2px);
 	background: var(--accent-color);
 	color: #fff;
+}
+
+.contact-icon img {
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 /* ==================== Footer ==================== */
