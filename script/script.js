@@ -68,7 +68,7 @@ const skills = {
     "DevOps & Tools": [
         "Kubernetes", "Apache Kafka", "AWS", "Docker", "GitLab CI/CD", "Redis", "RabbitMQ", "Linux"
     ],
-    "QA": [
+    "Quality Assurance": [
         "Unit Testing", "Integration Testing", "API Testing", "Performance Testing", "Monitoring"
     ],
     "Soft Skills": [
@@ -159,32 +159,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 const job = btn.closest('.job');
                 const details = job.querySelector('.job-details');
                 const summary = job.querySelector('.job-summary');
-                const img = btn.querySelector('img');
 
-                const isOpen = details.classList.contains('show');
-
-                // First, close all jobs
-                document.querySelectorAll('.job').forEach(j => {
-                    const d = j.querySelector('.job-details');
-                    const s = j.querySelector('.job-summary');
-                    const i = j.querySelector('.job-toggle-btn img');
-                    if (d && d.classList.contains('show')) {
-                        d.style.maxHeight = "0";
-                        d.classList.remove('show');
-                        if (s) s.style.display = 'block';
-                        if (i) i.classList.remove('rotate');
+                // Close other jobs
+                document.querySelectorAll('.job-details.show').forEach(openDetails => {
+                    if (openDetails !== details) {
+                        openDetails.classList.remove('show');
+                        openDetails.previousElementSibling.style.display = 'block'; // show summary
+                        const openBtn = openDetails.closest('.job').querySelector('.job-toggle-btn img');
+                        openBtn.classList.remove('rotate');
                     }
                 });
 
-                // Then, if it was previously closed, open it
-                if (!isOpen) {
+                // Toggle current job
+                if (!details.classList.contains('show')) {
                     summary.style.display = 'none';
-                    details.style.maxHeight = details.scrollHeight + "px";
                     details.classList.add('show');
-                    img.classList.add('rotate');
+                    btn.querySelector('img').classList.add('rotate');
+                } else {
+                    details.classList.remove('show');
+                    summary.style.display = 'block';
+                    btn.querySelector('img').classList.remove('rotate');
                 }
             });
         });
+
     }
 
     // ==================== Skills ====================
