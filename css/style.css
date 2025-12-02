@@ -73,7 +73,7 @@ section h2 {
 .container {
 	max-width: 1000px;
 	margin: 0 auto;
-	padding: 2rem 1rem;
+	padding: 1rem 1rem;
 }
 
 /* ==================== Modern Glassmorphism Navbar ==================== */
@@ -385,8 +385,8 @@ body.dark-mode .header-nav {
 }
 
 .job-toggle-btn img {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     transition: transform 0.3s ease;
 }
 
