@@ -18,7 +18,7 @@ const jobs = [
         ]
     },
     {
-        title: "Research Assistant - Software Engineer",
+        title: "RA - Software Engineer",
         company: "Payment Evolution",
         period: "Jan 2021 - Aug 2022",
         summary: "Maintained and optimized .NET applications, collaborated with cross-functional teams to deliver web solutions, and developed automated HR assistants and full-stack prototypes to improve efficiency and demonstrate product value.",
@@ -31,7 +31,7 @@ const jobs = [
         ]
     },
     {
-        title: "Research Assistant - Back End Developer",
+        title: "RA - Back End Developer",
         company: "Carleton Immersive Media Studio (CIMS)",
         period: "Jan 2022 - Jun 2022",
         summary: "Optimized Unreal Engine performance with C++, managed databases and Docker configurations, implemented interactive UI features, collaborated on 3D asset streaming, and maintained technical documentation to support efficient development workflows.",
