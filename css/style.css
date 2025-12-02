@@ -73,7 +73,7 @@ section h2 {
 .container {
 	max-width: 1000px;
 	margin: 0 auto;
-	padding: 1.5rem 1rem; /* reduce overall vertical padding */
+	padding: 2rem 1rem;
 }
 
 /* ==================== Modern Glassmorphism Navbar ==================== */
@@ -253,7 +253,7 @@ body.dark-mode .header-nav {
 	height: 250px;
 	border-radius: 50%;
 	object-fit: cover;
-	border: 3px solid var(--accent-color);
+	border: 4px solid var(--accent-color);
 	transition: width 0.3s, height 0.3s;
 }
 
@@ -301,9 +301,16 @@ body.dark-mode .header-nav {
 }
 
 /* ==================== Experience / Jobs ==================== */
+.job {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
 #experience-container .job {
     background: var(--bg-color);
-    padding: 1.2rem 1rem 1rem 1rem; /* extra top padding for toggle */
+    padding: 1.2rem 1rem 1rem 1rem;
     margin-bottom: 1rem;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
@@ -346,13 +353,15 @@ body.dark-mode .header-nav {
 }
 
 .job-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.4s ease, opacity 0.3s ease;
+	opacity: 0;
 }
 
 .job-details.show {
-    overflow: visible;
+	max-height: 1000px;
+	opacity: 1;
 }
 
 .job-details li {
