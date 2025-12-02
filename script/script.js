@@ -159,19 +159,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 const job = btn.closest('.job');
                 const details = job.querySelector('.job-details');
                 const summary = job.querySelector('.job-summary');
+                const img = btn.querySelector('img');
 
-                if (!details.classList.contains('show')) {
-                    // Hide summary and expand details
+                const isOpen = details.classList.contains('show');
+
+                // First, close all jobs
+                document.querySelectorAll('.job').forEach(j => {
+                    const d = j.querySelector('.job-details');
+                    const s = j.querySelector('.job-summary');
+                    const i = j.querySelector('.job-toggle-btn img');
+                    if (d && d.classList.contains('show')) {
+                        d.style.maxHeight = "0";
+                        d.classList.remove('show');
+                        if (s) s.style.display = 'block';
+                        if (i) i.classList.remove('rotate');
+                    }
+                });
+
+                // Then, if it was previously closed, open it
+                if (!isOpen) {
                     summary.style.display = 'none';
                     details.style.maxHeight = details.scrollHeight + "px";
                     details.classList.add('show');
-                    btn.querySelector('img').classList.add('rotate');
-                } else {
-                    // Collapse details and show summary
-                    details.style.maxHeight = "0";
-                    details.classList.remove('show');
-                    summary.style.display = 'block';
-                    btn.querySelector('img').classList.remove('rotate');
+                    img.classList.add('rotate');
                 }
             });
         });
