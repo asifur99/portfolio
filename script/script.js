@@ -281,6 +281,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    document.querySelectorAll('.contact-card[data-copy]').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior if <a> used
+            const textToCopy = card.getAttribute('data-copy');
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    // Show temporary feedback
+                    const textSpan = card.querySelector('.contact-text');
+                    const originalText = textSpan.textContent;
+                    textSpan.textContent = "Copied!";
+                    setTimeout(() => {
+                        textSpan.textContent = originalText;
+                    }, 1500);
+                })
+                .catch(err => console.error("Failed to copy text:", err));
+        });
+    });
+
     // ==================== Footer year ====================
     const dateEl = document.getElementById('date');
     if (dateEl) dateEl.textContent = new Date().getFullYear();
