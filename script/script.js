@@ -4,7 +4,7 @@ const jobs = [
         title: "Full Stack Software Developer",
         company: "SKYTRAC Systems",
         period: "Jul 2022 - Present",
-        summary: "Built scalable SaaS platforms for real-time flight tracking and communications, collaborating with embedded engineers to meet customer needs while optimizing performance and ensuring system reliability.",
+        summary: "Developed scalable SaaS platforms and high-traffic services using microservices, AWS, and distributed systems, improving performance and reliability. Built end-to-end REST APIs, optimized frontend code, and implemented CI/CD pipelines for seamless deployments. Collaborated on software design, testing strategies, and requirements gathering, while setting up automated monitoring for fast incident resolution.",
         responsibilities: [
             "Developed SaaS platforms for real-time communications and flight tracking, leveraging microservices to deliver scalable and reliable systems.",
             "Collaborated on software design and development through code reviews, design reviews, and authoring requirements based on customer needs.",
@@ -21,7 +21,7 @@ const jobs = [
         title: "RA - Software Engineer",
         company: "Payment Evolution",
         period: "Jan 2021 - Aug 2022",
-        summary: "Maintained and optimized .NET applications, collaborated with cross-functional teams to deliver web solutions, and developed automated HR assistants and full-stack prototypes to improve efficiency and demonstrate product value.",
+        summary: "Maintained and optimized .NET applications with C#, MVC, SQL, and MongoDB, enhancing stability and user experience. Developed web applications and full-stack prototypes using Vue.js and Django, supporting client workflows and funding efforts. Built HR automation tools with Prolog and Microsoft Bot Framework, improving efficiency and accuracy. Collaborated with cross-functional teams to deliver reliable, high-quality software solutions.",
         responsibilities: [
             "Maintained .NET applications using C# and MVC framework with SQL and MongoDB, ensuring system stability and smooth product performance.",
             "Optimized Enterprise software code and NuGet frameworks to improve application reliability and efficiency resulting in an improved User Experience.",
@@ -34,7 +34,7 @@ const jobs = [
         title: "RA - Back End Developer",
         company: "Carleton Immersive Media Studio (CIMS)",
         period: "Jan 2022 - Jun 2022",
-        summary: "Optimized Unreal Engine performance with C++, managed databases and Docker configurations, implemented interactive UI features, collaborated on 3D asset streaming, and maintained technical documentation to support efficient development workflows.",
+        summary: "Optimized Unreal Engine performance with C++, reducing Blueprint overhead and improving responsiveness. Developed PostgreSQL databases and Dockerized backend systems for fast asset retrieval and reliable client-server communication. Implemented interactive UI functionalities and collaborated on 3D model streaming for immersive user experiences. Authored technical documentation to ensure maintainability and team knowledge transfer.",
         responsibilities: [
             "Used C++ to optimize Unreal Engine performance, reducing Blueprint overhead and improving application efficiency and responsiveness.",
             "Created a PostgreSQL database server to manage data for server and client access, enabling fast retrieval and rendering of assets via Unreal Engine API calls.",
