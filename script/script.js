@@ -57,7 +57,12 @@ const certifications = [
         title: "AWS Cloud Technical Essentials",
         logo: "images/aws.png",
         link: "https://www.coursera.org/account/accomplishments/records/2DCY5335SMXQ"
-    }
+    },
+    {
+        title: "Building Data Lakes on AWS",
+        logo: "images/aws.png",
+        link: "https://www.coursera.org/account/accomplishments/verify/B8IN5MV37HQB"
+    },
 ];
 
 // Dynamic Skills Data
